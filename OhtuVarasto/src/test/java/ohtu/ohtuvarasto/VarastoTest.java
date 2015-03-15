@@ -88,7 +88,7 @@ public class VarastoTest {
     public void otetaanNegatiivinenMäärä() {
         double tila = varasto.paljonkoMahtuu();
         varasto.otaVarastosta(-1);
-        assertEquals(999, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+        assertEquals(tila, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
     @Test
