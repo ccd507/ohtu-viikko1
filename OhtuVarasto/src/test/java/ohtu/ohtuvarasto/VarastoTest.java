@@ -66,6 +66,32 @@ public class VarastoTest {
     }
 
     @Test
+    public void lisätäänLiikaa() {
+        varasto.lisaaVarastoon(varasto.paljonkoMahtuu() + 1);
+        assertEquals(0, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void lisätäänNegatiivinenMäärä() {
+        double tila = varasto.paljonkoMahtuu();
+        varasto.lisaaVarastoon(-1);
+        assertEquals(tila, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void otetaanLiikaa() {
+        varasto.otaVarastosta(varasto.getTilavuus() + 1);
+        assertEquals(varasto.getTilavuus(), varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void otetaanNegatiivinenMäärä() {
+        double tila = varasto.paljonkoMahtuu();
+        varasto.otaVarastosta(-1);
+        assertEquals(tila, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
     public void konstr() {
         varasto = new Varasto(-1);
         varasto = new Varasto(0);
